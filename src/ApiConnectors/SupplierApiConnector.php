@@ -71,12 +71,6 @@ class SupplierApiConnector extends BaseApiConnector
 
         // Store in an array by customer id
         foreach ($responseDOM->getElementsByTagName('dimension') as $supplier) {
-            $supplier_id = $supplier->textContent;
-
-            if (!is_numeric($supplier_id)) {
-                continue;
-            }
-
             $suppliers[$supplier->textContent] = array(
                 'name' => $supplier->getAttribute('name'),
                 'shortName' => $supplier->getAttribute('shortname'),
