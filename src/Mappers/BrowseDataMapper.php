@@ -97,6 +97,9 @@ class BrowseDataMapper extends BaseMapper
             case 'Value':
                 return floatval($value);
             case 'Date':
+                if (empty($value)) {
+                    return null;
+                }
                 return Util::parseDate($value);
             case 'Datetime':
                 return Util::parseDateTime($value);
